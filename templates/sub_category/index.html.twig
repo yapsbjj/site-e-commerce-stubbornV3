@@ -3,13 +3,15 @@
 {% block title %}SubCategory index{% endblock %}
 
 {% block body %}
-    <h1>SubCategory index</h1>
+    <br><br>
+    <h1>Liste des sous-catégories</h1><br><br>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Catégorie</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,18 +20,19 @@
             <tr>
                 <td>{{ sub_category.id }}</td>
                 <td>{{ sub_category.nom }}</td>
+                <td>{{ sub_category.category.name }}</td>
                 <td>
-                    <a href="{{ path('app_sub_category_show', {'id': sub_category.id}) }}">show</a>
-                    <a href="{{ path('app_sub_category_edit', {'id': sub_category.id}) }}">edit</a>
+                    <a class="btn btn-outline-primary" href="{{ path('app_sub_category_show', {'id': sub_category.id}) }}">Afficher</a>
+                    <a class="btn btn-danger" href="{{ path('app_sub_category_edit', {'id': sub_category.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Vous n'avez pas de catégories à afficher</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_sub_category_new') }}">Create new</a>
+    <a class="btn btn-outline-primary" href="{{ path('app_sub_category_new') }}">Ajouter une sous-catégorie</a>
 {% endblock %}

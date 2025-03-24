@@ -24,6 +24,11 @@ class Category
     #[ORM\OneToMany(targetEntity: SubCategory::class, mappedBy: 'category', orphanRemoval: true)]
     private Collection $subCategories;
 
+    public function  __toString():string
+    {
+        return $this->nom;
+    }
+
     public function __construct()
     {
         $this->subCategories = new ArrayCollection();
