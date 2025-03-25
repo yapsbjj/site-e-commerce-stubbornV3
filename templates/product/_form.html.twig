@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+
+<label for="">Image</label>
+    {{ form_widget(form.image,{'attr':{'class':'form'}}) }}
+
+<label for="">Nom</label>
+    {{ form_widget(form.nom,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Description</label>
+    {{ form_widget(form.description,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Prix</label>
+    {{ form_widget(form.price,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Taille XS</label>
+    {{ form_widget(form.stock_XS,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Taille S</label>
+    {{ form_widget(form.stock_S,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Taille M</label>
+    {{ form_widget(form.stock_M,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Taille L</label>
+    {{ form_widget(form.stock_L,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Taille XL</label>
+    {{ form_widget(form.stock_XL,{'attr':{'class':'form form-control'}}) }}
+
+    <label for="">Sous Catégories</label>
+    {{ form_widget(form.subCategories,{'attr':{'class':'form form-control'}}) }}
+    
+    <button class="btn btn-outline-primary">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form) }}

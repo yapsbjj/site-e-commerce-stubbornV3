@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Produits</h1>
+
+    {% include 'layout/_flash_message.html.twig' %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Stock_XS</th>
+                <th>Stock_S</th>
+                <th>Stock_M</th>
+                <th>Stock_L</th>
+                <th>Stock_XL</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.nom }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.stockXS }}</td>
+                <td>{{ product.stockS }}</td>
+                <td>{{ product.stockM }}</td>
+                <td>{{ product.stockL }}</td>
+                <td>{{ product.stockXL }}</td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ path('app_product_show', {'id': product.id}) }}">Voir l'article</a>
+                    <a class="btn btn-danger" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Pas de produit enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('app_product_new') }}">Ajouter un produit</a>
+{% endblock %}
