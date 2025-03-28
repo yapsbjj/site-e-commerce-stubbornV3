@@ -7,6 +7,8 @@
 
     {% include 'layout/_flash_message.html.twig' %}
 
+    <a class="btn btn-outline-primary" href="{{ path('app_product_new') }}">Ajouter un produit</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -14,11 +16,11 @@
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Prix</th>
-                <th>Stock_XS</th>
-                <th>Stock_S</th>
-                <th>Stock_M</th>
-                <th>Stock_L</th>
-                <th>Stock_XL</th>
+                <th>Taille XS</th>
+                <th>Taille S</th>
+                <th>Taille M</th>
+                <th>Taille L</th>
+                <th>Taille XL</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -36,8 +38,8 @@
                 <td>{{ product.stockXL }}</td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('app_product_show', {'id': product.id}) }}">Voir l'article</a>
-                    <a class="btn btn-danger" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
-                    <a class="btn btn-outline-info" href="">Ajouter le stock</a>
+                    <a class="btn btn-outline-info" href="{{ path('app_product_edit', {'id': product.id}) }}">Modifier</a>
+                    {{ include('product/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -48,5 +50,5 @@
         </tbody>
     </table>
 
-    <a class="btn btn-outline-primary" href="{{ path('app_product_new') }}">Ajouter un produit</a>
+  
 {% endblock %}
