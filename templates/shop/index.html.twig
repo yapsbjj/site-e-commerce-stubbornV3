@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShopController!{% endblock %}
+
+{% block body %}
+<h1>La boutique</h1>
+<div class="row">
+{% for product in products %}
+    <div class="col-md-3 mt-4">
+        <div class="card" style="width: 18rem;">
+            <a href="{{ path('app_shop_product_show',{'id':product.id}) }}"><img src="{{ asset('uploads/images/'~product.image) }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{{ path('app_shop_product_show',{'id':product.id}) }}"> <h5 class="card-title">{{ product.nom }}</h5></a>
+                <p class="card-text">{{ product.description }}</p>
+                <a href="#" class="btn btn-outline-success">Ajouter au panier</a>
+                </div>
+        </div>
+    </div>    
+{% endfor %}
+</div>
+
+{% endblock %}
