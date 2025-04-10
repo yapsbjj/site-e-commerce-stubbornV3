@@ -17,3 +17,9 @@ body {
     justify-content: space-between;
 }
 
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    margin: 150px;
+}
+
