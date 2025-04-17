@@ -1,23 +1,29 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Stubborn</a>
+    <a class="navbar-brand" href="#">
+      <img src="{{ asset('images/logo.png') }}" alt="Stubborn" height="80">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    {% set current_route = app.request.attributes.get('_route') %}
+
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ path('app_home')}}">Accueil</a>
+          <a class="nav-link {% if current_route == 'app_home' %}active border-bottom border-4{% endif %}" href="{{ path('app_home')}}">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_shop') }}">Boutique</a>
+          <a class="nav-link {% if current_route == 'app_shop' %}active border-bottom border-4{% endif %}" href="{{ path('app_shop') }}">Boutique</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_cart')}}">Panier</a>
+          <a class="nav-link {% if current_route == 'app_cart' %}active border-bottom border-4{% endif %}" href="{{ path('app_cart')}}">Panier</a>
         </li>
+
         {% if is_granted('ROLE_ADMIN') %}
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle {% if current_route starts with 'app_category' or current_route starts with 'app_sub_category' or current_route starts with 'app_user' or current_route starts with 'app_product' %}active fw-bold border-bottom{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Administrateur
           </a>
           <ul class="dropdown-menu">
@@ -30,17 +36,16 @@
           </ul>
         </li>
         {% endif %}
-        
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <li class="nav-item">
-        <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
-    </li>
-{% else %}
-    <li class="nav-item">
-        <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
-    </li>
-{% endif %}
 
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link {% if current_route == 'app_login' %}active fw-bold border-bottom{% endif %}" href="{{ path('app_login') }}">Se connecter</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

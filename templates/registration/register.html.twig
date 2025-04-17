@@ -23,6 +23,8 @@
             {{ form_row(registrationForm.agreeTerms) }} <br>
 
             <button type="submit" class="btn btn-primary">S'inscrire</button>
+            <p>Déjà inscrit ?</p>
+            <a class="btn btn-primary" href="{{ path('app_login') }}">Se connecter</a><br><br>
         {{ form_end(registrationForm) }}
-</div>
+</div><br><br>
 {% endblock %}

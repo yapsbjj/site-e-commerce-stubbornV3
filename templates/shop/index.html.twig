@@ -8,10 +8,12 @@
 {% for product in products %}
     <div class="col-md-3 mt-4">
         <div class="card" style="width: 18rem;">
-            <a href="{{ path('app_shop_product_show',{'id':product.id}) }}"><img src="{{ asset('uploads/images/'~product.image) }}" class="card-img-top" alt="...">
+            <a href="{{ path('app_shop_product_show',{'id':product.id}) }}"><img src="{{ asset('uploads/images/'~product.image) }}" class="card-img-top" alt="image-sweetshirt">
                 <div class="card-body">
                     <a href="{{ path('app_shop_product_show',{'id':product.id}) }}"> <h5 class="card-title" style="text-decoration-none">{{ product.nom }}</h5></a>
                 <p class="card-text">{{ product.description }}</p>
+                <p>{{ product.price}} €</p>
+                <a href="{{ path('app_shop_product_show',{'id':product.id})  }}" class="btn btn-outline-success">Voir</a><br><br>
                 <a href="{{ path('app_cart_new',{'id':product.id}) }}" class="btn btn-outline-success">Ajouter au panier</a>
                 </div>
         </div>
