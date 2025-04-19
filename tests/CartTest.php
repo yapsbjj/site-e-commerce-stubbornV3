@@ -28,6 +28,6 @@ class CartTest extends WebTestCase
         $crawler = $client->request('GET', '/checkout');
 
         $this->assertResponseIsSuccessful();
-        $this->assertStringContainsString('Commande confirmée', $client->getResponse()->getContent());
+        $this->assertStringContainsString('Commande confirmée', $client->getResponse()->getContent()); 
     }
 }
