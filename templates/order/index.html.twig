@@ -1,24 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OrderController!{% endblock %}
+{% block title %}Paiement avec Stripe{% endblock %}
 
 {% block body %}
-
 <div class="row">
     <div class="col-8">
         <h1>Checkout</h1>
 
         {{ form_start(form) }}
         {{ form_widget(form) }}<br>
-        <input type="submit" value="continuer" class="btn btn-outline-primary">
-
-        
+        <input type="submit" value="Payer avec Stripe" class="btn btn-outline-primary">
         {{ form_end(form) }}
     </div>
     <div class="col-4"><br><br><br><br>
-        <span>Montant à payer:</span><br>
-        <h4> {{ total }} €</h4>
+        <span>Montant à payer :</span><br>
+        <h4>{{ total }} €</h4>
     </div>
 </div>
-
 {% endblock %}
