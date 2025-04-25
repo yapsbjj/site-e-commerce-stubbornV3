@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande réussie{% endblock %}
+
+{% block body %}
+    <h1>✅ Paiement confirmé</h1>
+    <p>Merci pour votre commande ! Vous recevrez un e-mail de confirmation.</p>
+    <a href="{{ path('app_home') }}">Retour à l'accueil</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement annulé{% endblock %}
+
+{% block body %}
+    <h1>❌ Paiement annulé</h1>
+    <p>Votre commande n'a pas été validée. Vous pouvez réessayer à tout moment.</p>
+    <a href="{{ path('app_order') }}">Revenir au panier</a>
+{% endblock %}
